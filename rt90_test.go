@@ -19,7 +19,7 @@ func nearlyEqual(a, b, epsilon float64) bool {
 	}
 }
 
-func TestWGS84FromRT90(t *testing.T) {
+func TestToWGS84(t *testing.T) {
 	var tt = []struct {
 		x, y, wantLat, wantLong float64
 	}{
@@ -40,7 +40,7 @@ func TestWGS84FromRT90(t *testing.T) {
 	epsilon := 0.000001
 
 	for _, test := range tt {
-		lat, long := WGS84FromRT90(test.x, test.y)
+		lat, long := ToWGS84(test.x, test.y)
 		if !nearlyEqual(test.wantLat, lat, epsilon) {
 			t.Errorf("unexpected latitude: got = %v, want = %v", lat, test.wantLat)
 		}

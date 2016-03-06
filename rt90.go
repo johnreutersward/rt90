@@ -4,8 +4,8 @@ package rt90
 
 import "math"
 
-// WGS84FromRT90 transforms RT90 coordinates to WGS84 coordinates.
-func WGS84FromRT90(x, y float64) (lat float64, long float64) {
+// ToWGS84 transforms RT90 coordinates to WGS84 coordinates.
+func ToWGS84(x, y float64) (lat float64, long float64) {
 	lat, long = gaussKrüger(x, y)
 	return
 }
